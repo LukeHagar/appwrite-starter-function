@@ -1,4 +1,4 @@
-import { Client , Databases } from 'node-appwrite';
+import { Client , Databases, ID } from 'node-appwrite';
 
 // This is your Appwrite function
 // It's executed each time we get a request
@@ -24,14 +24,10 @@ export default async ({ req, res, log, error }: any) => {
 
   // The `req` object contains the request data
   if (req.method === "GET") {
-    const doc = await databases.getDocument(
-      "metrics",
-      "load",
-      "65ca2f77931f5ebb7d19"
-    );
-    log(doc["count"]);
-    await databases.updateDocument("metrics", "load", "65ca2f77931f5ebb7d19", {count: doc["count"] + 1})
-    return res.send(`Count Updated`);
+    await databases.createDocument("load", "bun", ID.unique(), {
+      count: 1,
+    });
+    return res.send(`Created Record`);
   } else {
     return res.send(`Invalid request method. Please use GET.`);
   }

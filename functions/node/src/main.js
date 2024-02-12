@@ -24,16 +24,10 @@ export default async ({ req, res, log, error }) => {
 
   // The `req` object contains the request data
   if (req.method === "GET") {
-    const doc = await databases.getDocument(
-      "metrics",
-      "load",
-      "65ca2e4954a2e5c286d0"
-    );
-    log(doc["count"]);
-    await databases.updateDocument("metrics", "load", "65ca2e4954a2e5c286d0", {
-      count: doc["count"] + 1,
+    await databases.createDocument("load", "node", ID.unique(), {
+      count: 1,
     });
-    return res.send(`Count Updated`);
+    return res.send(`Created Record`);
   } else {
     return res.send(`Invalid request method. Please use GET.`);
   }
