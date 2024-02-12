@@ -16,7 +16,7 @@ export default async ({ req, res, log, error }: any) => {
   // log(JSON.stringify(req.query));
 
   const client = new Client()
-     .setEndpoint('https://cloud.appwrite.io/v1')
+     .setEndpoint('https://appwrite.plygrnd.org/v1')
      .setProject(Bun.env["APPWRITE_FUNCTION_PROJECT_ID"])
      .setKey(Bun.env["APPWRITE_API_KEY"]);
 
