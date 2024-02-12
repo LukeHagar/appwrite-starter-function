@@ -1,17 +1,17 @@
 config:
   target: http://node.plygrnd.org
   phases:
-    - duration: 60
+    - duration: 600
       arrivalRate: 20
       rampTo: 30
       name: Warm up phase
-    - duration: 60
+    - duration: 600
       arrivalRate: 30
       rampTo: 50
       name: Ramp up load
-    - duration: 30
+    - duration: 600
       arrivalRate: 100
-      rampTo: 300
+      rampTo: 600
       name: Spike phase
   # Load & configure a couple of useful plugins
   # https://docs.art/reference/extensions
