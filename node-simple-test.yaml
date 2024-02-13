@@ -1,0 +1,18 @@
+config:
+  target: http://plygrnd.org
+  phases:
+    - duration: 600
+      arrivalRate: 100
+      rampTo: 300
+      name: Spike phase
+  # Load & configure a couple of useful plugins
+  # https://docs.art/reference/extensions
+  plugins:
+    apdex: {}
+  apdex:
+    threshold: 100
+scenarios:
+  - flow:
+    - get:
+        url: "/"
+   
