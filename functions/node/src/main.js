@@ -23,12 +23,19 @@ export default async ({ req, res, log, error }) => {
 
   const databases = new Databases(client);
 
+  log(`Initialized Database Client`);
+
   // The `req` object contains the request data
   if (req.method === "GET") {
-    await databases.createDocument("load", "node", ID.unique(), {
-      count: 1,
-    });
-    return res.send(`Created Record`);
+    try {
+      await databases.createDocument("load", "node", ID.unique(), {
+        count: 1,
+      });
+      log(`Created Record`);
+      return res.send(`Created Record`);
+    } catch (e) {
+      error(`Error: ${JSON.stringify(e)}`);
+    }
   } else {
     return res.send(`Invalid request method. Please use GET.`);
   }
