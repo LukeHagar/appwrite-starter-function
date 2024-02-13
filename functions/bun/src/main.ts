@@ -18,7 +18,7 @@ export default async ({ req, res, log, error }: any) => {
   const client = new Client()
      .setEndpoint('http://appwrite-functions/v1')
      .setProject(Bun.env["APPWRITE_FUNCTION_PROJECT_ID"])
-     .setKey(Bun.env["APPWRITE_API_KEY"]);
+     .setKey(Bun.env["APPWRITE_API_KEY"])
      .setSelfSigned(true);
 
   const databases = new Databases(client);
