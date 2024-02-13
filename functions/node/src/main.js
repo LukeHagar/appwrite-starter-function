@@ -16,9 +16,10 @@ export default async ({ req, res, log, error }) => {
   // log(JSON.stringify(req.query));
 
   const client = new Client()
-    .setEndpoint("https://appwrite.plygrnd.org/v1")
+    .setEndpoint("http://appwrite-functions/v1")
     .setProject(process.env.APPWRITE_FUNCTION_PROJECT_ID)
     .setKey(process.env.APPWRITE_API_KEY);
+    .setSelfSigned(true);
 
   const databases = new Databases(client);
 
