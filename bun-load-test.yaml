@@ -1,5 +1,5 @@
 config:
-  target: http://bun.plygrnd.org
+  target: https://bun.plygrnd.org
   phases:
     - duration: 600
       arrivalRate: 50
@@ -7,7 +7,7 @@ config:
       name: Ramp up load
     - duration: 600
       arrivalRate: 100
-      rampTo: 300
+      rampTo: 1000
       name: Spike phase
   # Load & configure a couple of useful plugins
   # https://docs.art/reference/extensions
@@ -17,6 +17,5 @@ config:
     threshold: 100
 scenarios:
   - flow:
-    - get:
-        url: "/"
-   
+      - get:
+          url: "/"

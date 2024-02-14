@@ -1,5 +1,5 @@
 config:
-  target: http://plygrnd.org
+  target: https://plygrnd.org
   phases:
     - duration: 600
       arrivalRate: 100
@@ -13,6 +13,5 @@ config:
     threshold: 100
 scenarios:
   - flow:
-    - get:
-        url: "/"
-   
+      - get:
+          url: "/"
